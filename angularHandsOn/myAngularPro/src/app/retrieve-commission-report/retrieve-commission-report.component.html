@@ -1,0 +1,62 @@
+<div class="seven">
+  <h1>Sales Details</h1>
+</div>
+<div>
+  <label for="formFileLg" class="form-label" style="font-size:2vw">Select a Date</label>
+  <br>
+<input [matDatepicker]="picker" (dateChange)="onDateChange($event.value)">
+<mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>
+</div>
+<br>
+<span class = "table-container">
+    <mat-table [dataSource]="commissions"   matSort (matSortChange)="announceSortChange($event)"   class="mat-elevation-z8" color = "accent" style="background-color: rgb(215, 201, 201);font: 1em sans-serif;">
+      <!-- Define your columns here -->
+      <ng-container matColumnDef="commissionId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header >S.No</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.commissionId }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="productName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Product Name">Product Name</mat-header-cell>
+        <mat-cell *matCellDef="let element" class = "clickable-cell" class = "clickable-cell"
+        (click)="openProductPopUp(element.productName,  element.salesmanArea)">{{ element.productName }}</mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="salesmanName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Saleman Name">Salesman Name</mat-header-cell>
+        <mat-cell *matCellDef="let element" class = "clickable-cell"
+        (click)="openSalesManPopUp(element.salesmanName,  element.salesmanArea)">{{ element.salesmanName }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Quantity">Quantity</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.quantity }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="salesAmount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Sales Amount">Sales Amount</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.salesAmount }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="salesmanArea">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Salesman Area">Salesman Area</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.salesmanArea }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="salesmanCommission">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Salesman Commission">Salesman Commission</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.salesmanCommission }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Created Date">Created Date</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.createdDate }}</mat-cell>
+      </ng-container>
+
+
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="{accent:true}"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</span>

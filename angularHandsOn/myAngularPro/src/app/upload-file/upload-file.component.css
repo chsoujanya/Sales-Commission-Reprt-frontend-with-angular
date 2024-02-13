@@ -1,0 +1,68 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  div {
+    position: relative;
+    background: #f8f8f8;
+    width: 90%;
+    max-width: 800px;
+    padding: 2em;
+    margin: 1.5em auto;
+    border: 3px solid rgba(0, 0, 0, 0.08);
+  }
+  
+  .btn-file {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+
+  
+  label input[type='file']{ display: none; }
+label span {
+  cursor: pointer;
+  background: linear-gradient(to bottom, #09F 0%, #024 100%);
+  font: 13pt Tahoma;
+  text-shadow: -1px -1px 0 #024;
+  color: #FFF;
+  border: 2px solid #06E;
+  border-radius: 4px;
+  padding: 10px 20px;
+  box-shadow: 1px 3px 0 #012;
+}
+.three h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  position: relative;
+}
+.three h1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #111;
+}
+.three h1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #333;
+}
+
+label span:hover { border-color: #09F; }
+label span:active {
+  background: linear-gradient(to top, #09F 0%, #024 100%);
+  box-shadow: 1px 1px 0 #012;
+}
